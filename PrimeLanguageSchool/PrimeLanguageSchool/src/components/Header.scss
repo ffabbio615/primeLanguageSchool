@@ -1,0 +1,238 @@
+@use '../App.scss';
+
+.whatsapp-container{
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 50vw;
+    background-color: #14AE5C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+    filter: drop-shadow(0 0 18px rgba(App.$neutral-color-black, 0.4));
+
+    .whatsapp-icon{
+        width: 40px;
+        height: 40px;
+        background-image: url(../assets/img/whatsappIcon.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+    }
+}
+
+header{
+
+    min-height: 150px;
+    width: 100vw;
+    background-color: App.$neutral-color-white;
+    filter: drop-shadow(0 -8px 12px App.$neutral-color-black);
+
+    .social-media, .header-menu{ width: 100%;}
+    
+    .social-media{
+        background-color: App.$primary-color-red;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        .social-media-instagram{
+            background-image: url(../assets/img/instagramIcon.svg);
+            margin-right: 15px;
+        }
+
+        .social-media-facebook{
+            background-image: url(../assets/img/facebookIcon.svg);
+            margin-right: 5vw;
+        }
+
+        .social-media-instagram, .social-media-facebook{
+            background-size: cover;
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+        }
+
+    }
+    .header-menu{
+        min-height: 110px;
+        display: flex;
+        align-items: center;
+
+        .header-menu-logo{
+            min-width: 223px;
+            width: 15%;
+            display: flex;
+            justify-content: center;
+
+            .header-logo{
+                min-height: 90px;
+                width: 208px;
+                background-image: url(../assets/img/primeLogoV1.svg);
+                background-size:cover;
+                margin-left: 15px;
+            }
+
+        }
+
+        .header-links{
+            min-width: 554px;
+            min-height: 90px;
+            width: 70%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+
+            a{
+                width: 100px;
+                text-align: center;
+                margin: 0 0 0 3vw;
+                font: App.$paragraph-20px;
+                font-weight: 700;
+                color: App.$primary-color-blue;
+                text-decoration: none;
+                cursor: pointer;
+                transition: color 0.3s ease;
+                display: inline-block;
+            }
+
+            a:hover{
+                animation: glowing 1.2s infinite;
+            }
+
+            @keyframes glowing {
+                0% {
+                  color: App.$primary-color-blue;
+                }
+                50% {
+                    color: App.$primary-color-red;
+                }
+                100% {
+                    color: App.$primary-color-blue;
+                  }
+              }
+             
+        }
+
+        .header-student-button{
+            min-width: 223px;
+            min-height: 90px;
+            width: 15%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .student-button{
+                width: 200px;
+                height: 65px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 15px;
+                background-color: App.$primary-color-red;
+                color: App.$neutral-color-white;
+                font: App.$title-h6-16px;
+                letter-spacing: 0.3px;
+                border-style: none;
+                border-radius: 50vw;
+                transition: 0.3s ease-in-out;
+                cursor: pointer;
+            }
+
+            .student-button:hover{
+                filter: brightness(1.2);
+                box-shadow: 0px 0px 12px -4px App.$neutral-color-black;
+            }
+
+        }
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1099px) and (orientation:landscape){
+    
+    .whatsapp-container{
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+    
+        .whatsapp-icon{
+            width: 35px;
+            height: 35px;
+        }
+    }
+    
+    header{
+    .header-menu{
+        justify-content: space-between;
+    .header-links{
+        display: none;
+    }}}
+}
+
+@media screen and (min-width: 300px) and (orientation:portrait){
+
+    .whatsapp-container{
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 20px;
+    
+        .whatsapp-icon{
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    header{
+        // min-height: 130px;
+        min-height: 12vh;
+        height: auto;
+        
+        .social-media{
+    
+            .social-media-facebook{
+                margin-right: 6vw;
+            }
+        }
+        
+        .header-menu{
+            min-height: 90px;
+            justify-content: space-between;
+    
+            .header-menu-logo{
+                min-width: 177px;
+                display: flex;
+                justify-content: center;
+                margin-left: 2vw;
+
+                .header-logo{
+                    min-height: 70px;
+                    width: 162px;
+                    margin: 0;
+                }
+            }
+    
+            .header-links{
+                display: none;
+            }
+    
+            .header-student-button{
+                min-width: 160px;
+                min-height: 60px;
+    
+                .student-button{
+                    width: 155px;
+                    height: 55px;
+                    font: App.$m-title-h6-12px;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+
+}

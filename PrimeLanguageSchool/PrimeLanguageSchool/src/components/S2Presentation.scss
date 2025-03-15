@@ -1,0 +1,435 @@
+@use '../App.scss';
+
+@mixin presentation-image($image-adress: none, $image-position: center center){
+    background-image: $image-adress;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: $image-position;
+}
+
+.up-button{
+    width: 70px;
+    height: 30px;
+    position: fixed;
+    bottom: 0;
+    left: 20px;
+    border-radius: 5px 5px 0 0;
+    background-color: App.$primary-color-red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+    filter: drop-shadow(0 0 18px rgba(App.$neutral-color-black, 0.4));
+    font: App.$paragraph-20px;
+    color: App.$neutral-color-white;
+    text-decoration: none;
+}
+
+.presentation-section{
+    min-width: 100vw;
+    min-height: 650px;
+    height: 100vh;
+    background-color: App.$secondary-color-red-2;
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    .presentation-background-active{
+        animation: reveal-presentation-background 1.3s forwards;
+        transform-origin: bottom;
+        @keyframes reveal-presentation-background {
+            0%{
+                transform: scaleY(0);
+                clip-path: inset(100% 0 0 0);
+            }
+            20%{
+                transform: scaleY(0.3);
+                clip-path: inset(85% 0 0 0);
+            }
+            100%{
+                transform: scaleY(1);
+                clip-path: inset(0 0 0 0);
+            }
+        }
+    }
+
+    .presentation-background-inactive{
+        animation: unreveal-presentation-background 1.3s forwards;
+        transform-origin: bottom;
+        @keyframes unreveal-presentation-background {
+            0%{
+                transform: scaleY(1);
+                clip-path: inset(0 0 0 0);
+            }
+            80%{
+                transform: scaleY(0.3);
+                clip-path: inset(85% 0 0 0);
+            }
+            100%{
+                transform: scaleY(0);
+                clip-path: inset(100% 0 0 0);
+            }
+        }
+    }
+
+    .presentation-container-active{
+        animation: reveal-presentation-container 0.5s forwards;
+        animation-delay: 1.2s;
+        @keyframes reveal-presentation-container {
+            0% {
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+    }
+
+    .presentation-container-inactive{
+        animation: unreveal-presentation-container 0.3s forwards;
+        @keyframes unreveal-presentation-container {
+            0% {
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+    }
+
+    .presentation-background{
+        width: 100%;
+        height: 95%;
+        align-self: flex-end;
+        background-image: url(../assets/img/londonBuildingsDesktop.png);
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        clip-path: inset(100% 0 0 0);
+        transform: scaleY(0);
+        transform-origin: bottom;
+        position: absolute;
+        z-index: 0;
+    }
+
+
+    .presentation-container{
+        width: calc(70% + ((1920px - 100vw))/2) ;
+        min-height: 615px;
+        height: 75%;
+        border-radius: 20px;
+        border: 5px solid App.$secondary-color-red11;
+        filter: drop-shadow(0 0 25px rgba(App.$neutral-color-black , 0.5));
+        background-color: App.$neutral-color-white;
+        color: App.$neutral-color-dark-gray;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 45% 55%;
+        grid-template-areas: "who-we-are-container course-images" "proprietor-container course-images";
+        gap: 25px;
+        padding: 2%;
+        opacity: 0;
+
+        .who-we-are-container{
+            grid-area: who-we-are-container;
+            display: grid;
+            grid-template-rows: auto auto;
+            align-content: center;
+
+            h1{
+                font: App.$title-h1-42px;
+            }
+
+            p{
+                font: App.$paragraph-16px;
+                line-height: 24px;
+                margin-left: 5px;
+                text-align: justify;
+            }
+        }
+
+        .proprietor-container{
+            grid-area: proprietor-container;
+            display: flex;
+            align-items: center;
+
+            .proprietor-image{
+                width: 43%;
+                height: 100%;
+                @include presentation-image(url(../assets/img/primeProprietorImage.svg), center center);
+            }
+
+            .proprietor-text{
+                width: 57%;
+            p:first-of-type{
+                font: App.$subtitle-26px;
+            }
+
+            p:last-of-type{
+                font: App.$paragraph-16px;
+                line-height: 24px;
+                text-align: justify;
+            }
+        }
+        }
+
+        .course-images{
+            grid-area: course-images;
+            display: flex;
+            flex-wrap: wrap;
+
+
+            .course-image1{
+                width: 90%;
+                margin-left: 5%;
+                @include presentation-image(url(../assets/img/courseImage1.webp), center center);
+            }
+
+            .course-image2{
+                width: 90%;
+                margin-left: 5%;
+                @include presentation-image(url(../assets/img/courseImage2.webp), center center);
+            }
+        }
+    }
+
+}
+
+@media (max-width: 1500px) {
+    .presentation-section {
+
+        .presentation-container {
+            width: calc(60% + ((1920px - 100vw))/2);
+            height: 65%;
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    .presentation-section {
+
+        .presentation-container {
+            width: calc(55% + ((1920px - 100vw))/2);
+        }
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1099px) and (orientation:landscape){
+
+    .up-button{
+        display: none;
+    }
+
+    .presentation-section {
+        min-height: 100vh;
+        height: auto;
+
+        .presentation-background{
+            clip-path: inset(0 0 0 0);
+            transform: scaleY(1);
+            animation: none;
+        }
+
+        .presentation-container {
+            width: 90%;
+            min-height: 100vh;
+            height: auto;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto;
+            grid-template-areas: "who-we-are-container" "course-images" "proprietor-container";
+            gap: 10px;
+            padding: 2%;
+            margin: 25px 0;
+            text-align: center;
+            opacity: 1;
+            animation: none;
+            animation-delay: 0;
+
+            .who-we-are-container{
+                h1{
+                    font: App.$m-title-h1-36px;
+                    margin-bottom: 10px;
+                }
+    
+                p{
+                    font: App.$m-paragraph-15px;
+                    line-height: 24px;
+                }
+            }
+
+            .course-images{
+                justify-content: center;
+    
+                .course-image1{
+                    max-width: 90%;
+                    height: 250px;
+                    margin: 20px 0;
+                    @include presentation-image(url(../assets/img/courseImage1.webp), center center);
+                }
+    
+                .course-image2{
+                    max-width: 90%;
+                    height: 250px;
+                    margin: 0 0 20px 0;
+                    @include presentation-image(url(../assets/img/courseImage2.webp), center center);
+                }
+            }
+
+            .proprietor-container{
+                justify-content: center;
+                flex-wrap: wrap;
+    
+                .proprietor-image{
+                    display: none;
+                }
+    
+                .proprietor-text{
+                    width: 90%;
+                    display: grid;
+                    grid-template-rows: auto auto auto;
+                    gap: 10px;
+
+                p:first-of-type{
+                    font: App.$m-subtitle-24px;
+                }
+
+                .proprietor-image-mobile{
+                    width: auto;
+                    height: 250px;
+                    @include presentation-image(url(../assets/img/primeProprietorImage.svg), center center);
+                }
+    
+                p:last-of-type{
+                    font: App.$m-paragraph-15px;
+                    line-height: 24px;
+                }
+            }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 300px) and (orientation:portrait){
+
+    .up-button{
+        display: none;
+    }
+
+    .presentation-section {
+        min-height: 100vh;
+        height: auto;
+
+        .presentation-background-active{
+            animation: reveal-presentation-background 1s forwards;
+            @keyframes reveal-presentation-background {
+                0%{
+                    opacity: 0;
+                    transform: scaleY(1);
+                    clip-path: inset(0 0 0 0);
+                }
+                20%{
+                    transform: scaleY(1);
+                    clip-path: inset(0 0 0 0);
+                }
+                100%{
+                    opacity: 1;
+                    transform: scaleY(1);
+                    clip-path: inset(0 0 0 0);
+                }
+            }
+        }
+    
+        .presentation-container-active{
+            animation: reveal-presentation-container 1s forwards;
+           // animation-delay: 0.5s;
+        }
+
+        .presentation-background{
+            // clip-path: inset(0 0 0 0);
+            // transform: scaleY(1);
+            // animation: none;
+            background-image: url(../assets/img/londonBuildingsMobile.png);
+        }
+
+        .presentation-container {
+            width: 90%;
+            min-height: 100vh;
+            height: auto;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto;
+            grid-template-areas: "who-we-are-container" "course-images" "proprietor-container";
+            gap: 10px;
+            padding: 5%;
+            margin: 25px 0;
+            text-align: center;
+            // opacity: 1;
+            // animation: none;
+            // animation-delay: 0;
+
+            .who-we-are-container{
+                h1{
+                    font: App.$m-title-h1-36px;
+                    margin-bottom: 10px;
+                }
+    
+                p{
+                    font: App.$m-paragraph-15px;
+                    text-align: left;
+                    line-height: 24px;
+                }
+            }
+
+            .course-images{
+                justify-content: center;
+    
+                .course-image1{
+                    max-width: 90%;
+                    height: 200px;
+                    margin: 0;
+                    @include presentation-image(url(../assets/img/courseImage1.webp), center center);
+                }
+    
+                .course-image2{
+                    max-width: 90%;
+                    height: 200px;
+                    margin: 0;
+                    @include presentation-image(url(../assets/img/courseImage2.webp), center center);
+                }
+            }
+
+            .proprietor-container{
+                justify-content: center;
+                flex-wrap: wrap;
+    
+                .proprietor-image{
+                    display: none;
+                }
+    
+                .proprietor-text{
+                    width: 90%;
+                    display: grid;
+                    grid-template-rows: auto auto auto;
+                    gap: 10px;
+
+                p:first-of-type{
+                    font: App.$m-subtitle-24px;
+                }
+
+                .proprietor-image-mobile{
+                    width: auto;
+                    height: 250px;
+                    @include presentation-image(url(../assets/img/primeProprietorImage.svg), center center);
+                }
+    
+                p:last-of-type{
+                    font: App.$m-paragraph-15px;
+                    text-align: left;
+                    line-height: 24px;
+                }
+            }
+            }
+        }
+    }
+}

@@ -1,0 +1,348 @@
+@use '../App.scss';
+
+@mixin proposal-image-style ($display: block) {
+    display: $display;
+    width: auto;
+    height: 100%;
+    grid-area: proposal-image;
+    background-image: url(../assets/img/students.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    filter: drop-shadow(2px 0px 10px App.$secondary-color-blue8);
+}
+
+.proposal-section{
+    min-height: 100vh;
+    width: 100vw;
+    animation: show-proposal 1.5s forwards;
+    opacity: 0;
+
+    @keyframes show-proposal {
+        100%{
+            opacity: 1;
+        }
+    }
+
+    .proposal-background {
+        width: 100%;
+        min-height:650px;
+        height: 70vh;
+        background-color: App.$secondary-color-blue-2;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        position: relative;
+
+        .foreground-stars {
+            width: 100%;
+            height: 100%;
+            background-image: url(../assets/img/foregroundStars.webp);
+            background-size: contain;
+            background-blend-mode: multiply;
+            opacity: 3%;
+            position: absolute;
+        }
+
+        .proposal {
+            width: calc(60% + ((1920px - 100vw))/2) ;
+            max-width: 90%;
+            height: 95%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas: "proposal-text proposal-image";
+            gap: 90px;
+            color: App.$neutral-color-white;
+            justify-content: center;
+            align-items: center;
+
+            .proposal-text{
+                width: 100%;
+                height: 50%;
+                grid-area: proposal-text;
+                display: grid;
+                grid-template-rows: auto auto auto;
+                grid-template-areas: "title" "paragraph" "button";
+                gap: 8px;
+                align-items: center;
+
+                h1{
+                    grid-area: title;
+                    font: App.$title-h1-42px;
+                    text-align: center;
+                    
+                }
+    
+                p {
+                    width: 80%;
+                    grid-area: paragraph;
+                    margin: 0 10%;
+                    font: App.$paragraph-16px;
+                    text-align: center;
+                }
+
+                .proposal-image-mobile{
+                    @include proposal-image-style ($display: none);
+                }
+    
+                .CTA-container {
+                    grid-area: button;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .proposal-image{
+                @include proposal-image-style ($display: block);
+            }
+        }
+    }
+
+    .methodology-background {
+        min-height: 300px;
+        height: 30vh;
+        background-color: App.$primary-color-blue;
+        display: flex;
+        justify-content: center;
+
+        .methodology-elipse {
+            width: 110px;
+            height: 110px;
+            position: absolute;
+            margin-top: -55px;
+            z-index: 0;
+            background-color: App.$primary-color-blue;
+            border-radius: 100%;
+        }
+
+        .methodology {
+            width: calc(60% + ((1920px - 100vw))/2) ;
+            height: 90%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto auto;
+            grid-template-areas: "methodology-title methodology-image" "methodology-paragraph methodology-image";
+            column-gap: 90px;
+            align-self: center;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            color: App.$neutral-color-white;
+
+            h3{
+                font: App.$title-h3-30px;
+                grid-area: methodology-title;
+            }
+
+            p{
+                font: App.$paragraph-16px;
+                line-height: 24px;
+                text-align: justify;
+                grid-area: methodology-paragraph;
+            }
+
+            .methodology-image{
+                height: 100%;
+                width: auto;
+                grid-area: methodology-image;
+                background-image: url(../assets/img/onlineCourse.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center right;
+                filter: drop-shadow(2px 0px 15px rgba(App.$secondary-color-blue8, 0.6));
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1099px) and (orientation:landscape), (min-width: 800px) and (orientation:portrait){
+    .proposal-section{
+
+        .proposal-background{
+            align-items: center;
+            min-height: 650px;
+
+        .proposal {
+            width: 90%;
+            height: 95%;
+            grid-template-columns: 1fr;
+            grid-template-areas: "proposal-text";
+            gap: none;
+
+            .proposal-text{
+                height: 80%;
+                margin-bottom: 55px;
+                grid-template-rows: auto auto auto auto;
+                grid-template-areas: "title" "paragraph" "imagem" "button";
+                gap: 8px;
+                align-items: center;
+                grid-area: proposal-text;
+                
+
+                h1{
+                    grid-area: title;
+                    font: App.$m-title-h2-30px;
+                }
+    
+                p {
+                    grid-area: paragraph;
+                    font: App.$m-paragraph-15px;
+                }
+
+                .proposal-image-mobile{
+                    display: block;
+                    min-height: 300px;
+                    grid-area: imagem;
+                }
+    
+                .CTA-container {
+                    grid-area: button;
+                }
+            }
+
+            .proposal-image{
+                display: none;
+            }
+        }
+    }
+
+    .methodology-background {
+        min-height: 400px;
+        height: 100vh;
+
+        .methodology-elipse {
+            width: 100px;
+            height: 100px;
+            margin-top: -50px;
+        }
+
+        .methodology {
+            width:  80%;
+            height: 90%;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto;
+            grid-template-areas: "methodology-title" "methodology-image" "methodology-paragraph";
+            column-gap: 0;
+            // row-gap: 15px;
+
+            h3{
+                width: 90%;
+                margin: 0 5%;
+                font: App.$m-title-h3-24px;
+                text-align: center;
+            }
+
+            p{
+                width: 80%;
+                margin: 0 10%;
+                font: App.$m-paragraph-15px;
+                text-align: center;
+                line-height: 20px
+            }
+
+            .methodology-image{
+                height: 150px;
+                background-position: center center;
+            }
+        }
+    }
+        
+    }
+}
+
+@media screen and (min-width: 300px) and (orientation:portrait){
+
+    .proposal-section{
+        max-width: 100vw;
+
+        .proposal-background{
+            min-height: 65vh;
+            height: auto;
+            align-items: center;
+
+        .proposal {
+            width: 90%;
+            height: auto;
+            grid-template-columns: 1fr;
+            grid-template-areas: "proposal-text";
+            gap: none;
+            margin: 25px 0;
+
+            .proposal-text{
+                height: 100%;
+                grid-template-rows: auto auto auto auto;
+                grid-template-areas: "title" "paragraph" "imagem" "button";
+                gap: 16px;
+                align-items: center;
+                grid-area: proposal-text;
+                
+
+                h1{
+                    grid-area: title;
+                    font: App.$m-title-h2-30px;
+                }
+    
+                p {
+                    grid-area: paragraph;
+                    font: App.$m-paragraph-15px;
+                }
+
+                .proposal-image-mobile{
+                    display: block;
+                    min-height: 300px;
+                    grid-area: imagem;
+                }
+    
+                .CTA-container {
+                    grid-area: button;
+                }
+            }
+
+            .proposal-image{
+                display: none;
+            }
+        }
+    }
+
+
+    .methodology-background {
+        min-height: 35vh;
+        height: auto;
+
+        .methodology-elipse {
+            display: none;
+        }
+
+        .methodology {
+            width:  90%;
+            height: auto;
+            margin: 25px 0;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto;
+            grid-template-areas: "methodology-title" "methodology-image" "methodology-paragraph";
+            column-gap: 0;
+            row-gap: 15px;
+
+            h3{
+                font: App.$m-title-h3-24px;
+                text-align: center;
+            }
+
+            p{
+                width: 90%;
+                margin: 0 5%;
+                font: App.$m-paragraph-15px;
+                text-align: center;
+                line-height: 20px
+            }
+
+            .methodology-image{
+                height: 180px;
+                background-position: center center;
+            }
+        }
+    }
+}
+
+}

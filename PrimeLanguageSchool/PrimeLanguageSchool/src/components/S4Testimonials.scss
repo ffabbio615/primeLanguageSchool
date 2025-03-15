@@ -1,0 +1,167 @@
+@use '../App.scss';
+
+.testimonials-section{
+    width: 100vw;
+    height: auto;
+    background-color: App.$neutral-color-light-gray;
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+
+    h1{
+        width: 100%;
+        font: App.$title-h1-42px;
+        color: App.$neutral-color-dark-gray;
+        margin: 25px 0;
+    }
+
+.testimonials-group {
+    width: calc(75% + ((1920px - 100vw))/2) ;
+    max-width: 95%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, max(280px)));
+    place-content: center;
+    gap:25px;
+    margin-bottom: 25px;
+
+    
+
+    .testimonials-card {
+        height: auto;
+        background-color: App.$neutral-color-white;
+        border-radius: 10px;
+        transition: 0.3s;
+        color: App.$neutral-color-dark-gray;
+        text-decoration: none;
+        display: grid;
+        grid-template-rows: auto auto;
+        row-gap: 10px;
+
+        .testimonial {
+            width: 100%;
+            min-height: 290px;
+            height: auto;
+            display: grid;
+            grid-template-rows: auto auto;
+            align-items: center;
+
+
+            .prime-testimonial-icon {
+                width: 100%;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                margin: 10px 0;
+
+                div {
+                    width: 60px;
+                    height: 60px;
+                    background-image: url(../assets/img/primeIcon.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+            }
+
+            p {
+                padding: 0 25px;
+                height: 210px;
+                align-content: center;
+                text-align: left;
+                font: App.$paragraph-15px;
+            }
+        }
+
+
+        .testimonial-name {
+            width: 100%;
+            height: 60px;
+            background-color: App.$primary-color-blue;
+            color: App.$neutral-color-white;
+            font: App.$title-h5-20px;
+            letter-spacing: 0.4px;
+            align-content: center;
+            border-radius: 0 0 10px 10px;
+        }
+    }
+
+    .testimonials-card:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px -5px App.$neutral-color-dark-gray;
+    }
+}
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1300px) and (orientation:landscape){
+
+    .testimonials-section{
+
+        .testimonials-group {
+            max-width: 60%;
+            grid-template-columns: repeat(auto-fit, minmax(250px, max(260px)));
+        }
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1099px) and (orientation:landscape){
+
+    .testimonials-section{
+        h1{
+            font: App.$m-title-h1-36px;
+        }
+    
+    .testimonials-group{
+        max-width: 60%;
+        grid-template-columns: repeat(auto-fit, minmax(240px, max(280px)));
+
+        .testimonials-card{
+            transition: 0s;
+
+            &:hover {
+                transform: scale(1);
+                box-shadow: none;
+            }
+            
+            .testimonial p{
+                    font: App.$m-paragraph-14px;
+                }
+            }
+
+        }
+        
+    }
+}
+
+@media screen and (min-width: 300px) and (orientation:portrait){
+
+    .testimonials-section{
+        h1{
+            font: App.$m-title-h1-36px;
+        }
+    
+    .testimonials-group{
+        max-width: 90%;
+        grid-template-columns: repeat(4, minmax(270px, max(300px)));
+        overflow-x: scroll;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+
+        .testimonials-card{
+            transition: 0s;
+
+            &:hover {
+                transform: scale(1);
+                box-shadow: none;
+            }
+            
+            .testimonial p{
+                    font: App.$m-paragraph-14px;
+                }
+            }
+
+        }
+        
+    }
+}

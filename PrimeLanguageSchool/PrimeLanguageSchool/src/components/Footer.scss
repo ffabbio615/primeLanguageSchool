@@ -1,0 +1,38 @@
+@use '../App.scss';
+
+.footer{
+    min-height: 8vh;
+    min-width: 100vw;
+    background-color: App.$primary-color-blue;
+    text-align: center;
+    align-content: center;
+    color: App.$neutral-color-white;
+
+    p{
+        font: App.$paragraph-16px;
+        line-height: 24px;
+    }
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 1099px) and (orientation:landscape){
+    .footer{
+        min-height: 70px;
+    }
+}
+
+@media screen and (min-width: 300px)  and (orientation:portrait){
+    .footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 110px;
+
+        p{
+            font: App.$m-paragraph-14px;
+            line-height: 20px;
+            max-width: 80%;
+        }
+    }
+    
+}

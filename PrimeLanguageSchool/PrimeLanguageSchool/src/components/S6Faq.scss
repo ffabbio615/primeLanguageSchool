@@ -1,0 +1,211 @@
+@use '../App.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+.question-box-active{
+    animation: questionBoxActive 0.5s forwards;
+
+    @keyframes questionBoxActive {
+        from {
+         opacity: 0;
+        }
+        to {
+         opacity: 1;
+        }
+    }
+}
+
+.question-box-inactive{
+    animation: questionBoxInactive 0.5s backwards;
+
+    @keyframes questionBoxInactive {
+        from {
+         opacity: 1;
+        }
+        to {
+         opacity: 0;
+        }
+    }
+}
+
+.faq-section {
+    min-height: 89.5vh;
+    min-width: 100vw;
+    background-color: App.$neutral-color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .faq-group {
+        width: 80%;
+        height: 95%;
+        
+        h1 {
+            text-align: center;
+            font: App.$title-h1-42px;
+            color: App.$neutral-color-dark-gray;
+            margin-top: 25px;
+            opacity: 0;
+        }
+
+        .question-box-group {
+            margin: 25px 20%;
+            width: 60%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            .question-box {
+                width: 100%;
+                min-height: 35px;
+                margin-bottom: 20px;
+                border: 2px solid App.$primary-color-blue;
+                border-radius: 10px;
+                position: relative;
+                user-select: none;
+                cursor: pointer;
+                color: App.$neutral-color-dark-gray;
+                opacity: 0;
+
+                @for $i from 1 through 10{
+                    &:nth-child(#{$i}){
+                        animation-delay: #{0.1 * $i}s;
+                    }
+                }
+
+
+                .text-question {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    height: 35px;
+                    border-bottom: 0px solid App.$primary-color-blue;
+
+                    p {
+                        font: App.$subtitle-16px;
+                        letter-spacing: 0.5px;
+                        margin-left: 10px;
+                    }
+
+                    .arrow-box {
+                        font-size: 25px;
+                        transform: scale(1, 0.75);
+                        color: App.$primary-color-blue;
+                        margin-right: 10px;
+                        transition: 300ms ease-in-out;
+                    }
+                }
+
+                .text-answer {
+                    position: absolute;
+                    opacity: 0;
+                    width: 100%;
+                    height: 0;
+                    overflow: hidden;
+                    // transition: height 500ms ease-in-out, opacity 300ms ease-in-out;
+                    padding: 10px 40px 10px 10px;
+                    font: App.$paragraph-16px;
+                }
+            }
+
+            .question-box-opened{
+
+                .text-question {
+                    border-bottom: 2px solid App.$primary-color-blue;
+
+                    .arrow-box {
+                        transform: rotate(180deg) scale(1, 0.8);
+                    }
+                }
+
+                .text-answer {
+                    transition: 500ms ease-in-out;
+                    position: static;
+                    height: auto;
+                    opacity: 1;
+                }
+            }
+
+            // .question-box:active .text-question {
+            //     border-bottom: 2px solid App.$primary-color-blue;
+            // }
+
+            // .question-box:active .text-answer {
+            //     transition: 500ms ease-in-out;
+            //     position: static;
+            //     opacity: 1;
+            // }
+
+            // .question-box:active .text-question .arrow-box {
+            //     transform: rotate(180deg) scale(1, 0.8);
+            // }
+        }
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1099px) and (orientation:landscape) {
+    
+    .faq-section {
+
+        .faq-group {
+            width: 85%;
+
+            h1{
+                font: App.$m-title-h1-36px;
+            }
+
+            .question-box-group {
+                width: 100%;
+                margin: 25px 0;
+
+                .question-box {
+
+                    .text-question {
+                        p{}
+
+                        .arrow-box {}
+                    }
+                    .text-answer {
+                        font: App.$m-paragraph-14px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 300px) and (orientation:portrait) {
+
+    .faq-section {
+
+        .faq-group {
+            width: 85%;
+
+            h1{
+                font: App.$m-title-h1-36px;
+            }
+
+            .question-box-group {
+                width: 100%;
+                margin: 25px 0;
+
+                .question-box {
+
+                    .text-question {
+                        p{}
+
+                        .arrow-box {}
+                    }
+                    .text-answer {
+                        font: App.$m-paragraph-14px;
+                    }
+                }
+            }
+        }
+    }
+
+}

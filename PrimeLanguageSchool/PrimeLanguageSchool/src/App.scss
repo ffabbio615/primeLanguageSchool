@@ -1,0 +1,192 @@
+//-----COLORS-----//
+//PRIMARY RED
+$primary-color-red: rgb(170, 20, 0);
+
+//PRIMARY BLUE
+$primary-color-blue: rgb(10, 70, 110);
+
+//SECONDARY RED
+$secondary-color-red-8: rgb(210, 130, 115);
+$secondary-color-red-5: rgb(195, 90, 75);
+$secondary-color-red-2: rgb(180, 45, 30);
+$secondary-color-red-plus: rgb(223, 0, 0);
+$secondary-color-red3: rgb(135, 15, 0);
+$secondary-color-red5: rgb(120, 15, 0);
+$secondary-color-red8: rgb(75, 10, 0);
+$secondary-color-red11: rgb(60, 5, 0);
+
+//SECONDARY BLUE
+$secondary-color-blue-14: rgb(195, 210, 220);
+$secondary-color-blue-11: rgb(150, 175, 195);
+$secondary-color-blue-8: rgb(110, 145, 170);
+$secondary-color-blue-5: rgb(65, 115, 145);
+$secondary-color-blue-2: rgb(35, 90, 125);
+$secondary-color-blue2: rgb(10, 55, 90);
+$secondary-color-blue5: rgb(5, 40, 65);
+$secondary-color-blue8: rgb(5, 30, 50);
+
+//NEUTRAL
+$neutral-color-white: rgb(255,255,255);
+$neutral-color-light-gray: rgb(230,230,230);
+$neutral-color-medium-gray: rgb(135,135,135);
+$neutral-color-dark-gray: rgb(30,30,30);
+$neutral-color-black: rgb(0,0,0);
+
+
+
+//-----Typography-----//
+
+//IMPORTS
+@font-face { font-family: 'GiphursThin'; src: url(../src/assets/fonts/Giphurs-Thin.otf) format('truetype');}
+@font-face { font-family: 'GiphursExtraLight'; src: url(../src/assets/fonts/Giphurs-ExtraLight.otf) format('truetype');}
+@font-face { font-family: 'GiphursLight'; src: url(../src/assets/fonts/Giphurs-Light.otf) format('truetype');}
+@font-face { font-family: 'GiphursRegular'; src: url(../src/assets/fonts/Giphurs-Regular.otf) format('truetype');}
+@font-face { font-family: 'GiphursMedium'; src: url(../src/assets/fonts/Giphurs-Medium.otf) format('truetype');}
+@font-face { font-family: 'GiphursSemiBold'; src: url(../src/assets/fonts/Giphurs-SemiBold.otf) format('truetype');}
+@font-face { font-family: 'GiphursBold'; src: url(../src/assets/fonts/Giphurs-Bold.otf) format('truetype');}
+@font-face { font-family: 'GiphursExtraBold'; src: url(../src/assets/fonts/Giphurs-ExtraBold.otf) format('truetype');}
+@font-face { font-family: 'GiphursBlack'; src: url(../src/assets/fonts/Giphurs-Black.otf) format('truetype');}
+
+@font-face { font-family: 'MontserratThin'; src: url(../src/assets/fonts/Montserrat-Thin.ttf) format('truetype');}
+@font-face { font-family: 'MontserratExtraLight'; src: url(../src/assets/fonts/Montserrat-ExtraLight.ttf) format('truetype');}
+@font-face { font-family: 'MontserratLight'; src: url(../src/assets/fonts/Montserrat-Light.ttf) format('truetype');}
+@font-face { font-family: 'MontserratRegular'; src: url(../src/assets/fonts/Montserrat-Regular.ttf) format('truetype');}
+@font-face { font-family: 'MontserratItalic'; src: url(../src/assets/fonts/Montserrat-Italic.ttf) format('truetype');}
+@font-face { font-family: 'MontserratMedium'; src: url(../src/assets/fonts/Montserrat-Medium.ttf) format('truetype');}
+@font-face { font-family: 'MontserratSemiBold'; src: url(../src/assets/fonts/Montserrat-SemiBold.ttf) format('truetype');}
+@font-face { font-family: 'MontserratBold'; src: url(../src/assets/fonts/Montserrat-Bold.ttf) format('truetype');}
+@font-face { font-family: 'MontserratExtraBold'; src: url(../src/assets/fonts/Montserrat-ExtraBold.ttf) format('truetype');}
+@font-face { font-family: 'MontserratBlack'; src: url(../src/assets/fonts/Montserrat-Black.ttf) format('truetype');}
+
+@font-face { font-family: 'PreTesto'; src: url(../src/assets/fonts/PreTesto.ttf) format('truetype');}
+
+//-----Font Definitions-----//
+
+//DESKTOP
+$webAdjPLUS: clamp(42px, 3.1vw, 48px);
+$webAdj42px: clamp(36px, 2.8vw, 42px);
+$webAdj36px: clamp(32px, 2.5vw, 36px);
+$webAdj32px: clamp(28px, 2.2vw, 32px);
+$webAdj30px: clamp(26px, 2.1vw, 30px);
+$webAdj26px: clamp(24px, 1.9vw, 26px);
+$webAdj24px: clamp(20px, 1.65vw, 24px);
+$webAdj20px: clamp(18px, 1.32vw, 20px);
+$webAdj18px: clamp(16px, 1.21vw, 18px);
+$webAdj16px: clamp(14px, 1.1vw, 16px);
+$webAdj15px: clamp(13px, 1.03vw, 15px);
+$webAdj14px: clamp(12px, 0.96vw, 14px);
+$webAdj13px: clamp(11px, 0.9vw, 13px);
+$webAdj12px: clamp(10px, 0.81vw, 12px);
+
+$title-h1-PLUS: normal $webAdjPLUS 'GiphursBold', sans-serif;
+$title-h1-42px: normal $webAdj42px 'GiphursBold', sans-serif;
+$title-h2-36px: normal $webAdj36px 'GiphursBold', sans-serif;
+$title-h3-30px: normal $webAdj30px 'GiphursBold', sans-serif;
+$title-h4-24px: normal $webAdj24px 'GiphursBold', sans-serif;
+$title-h5-20px: normal $webAdj20px 'GiphursBold', sans-serif;
+$title-h6-16px: normal $webAdj16px 'GiphursBold', sans-serif;
+
+$subtitle-36px: normal $webAdj36px 'MontserratBold', sans-serif;
+$subtitle-32px: normal $webAdj32px 'MontserratBold', sans-serif;
+$subtitle-26px: normal $webAdj26px 'MontserratBold', sans-serif;
+$subtitle-20px: normal $webAdj20px 'MontserratBold', sans-serif;
+$subtitle-16px: normal $webAdj16px 'MontserratBold', sans-serif;
+
+$paragraph-24px: normal $webAdj24px 'MontserratRegular', sans-serif;
+$paragraph-20px: normal $webAdj20px 'MontserratRegular', sans-serif;
+$paragraph-18px: normal $webAdj18px 'MontserratRegular', sans-serif;
+$paragraph-16px: normal $webAdj16px 'MontserratRegular', sans-serif;
+$paragraph-15px: normal $webAdj15px 'MontserratRegular', sans-serif;
+$paragraph-14px: normal $webAdj14px 'MontserratRegular', sans-serif;
+$paragraph-13px: normal $webAdj13px 'MontserratRegular', sans-serif;
+$paragraph-12px: normal $webAdj12px 'MontserratRegular', sans-serif;
+
+//MOBILE
+$m-title-h1-36px: normal 36px 'GiphursBold', sans-serif;
+$m-title-h2-30px: normal 30px 'GiphursBold', sans-serif;
+$m-title-h3-24px: normal 24px 'GiphursBold', sans-serif;
+$m-title-h4-20px: normal 20px 'GiphursBold', sans-serif;
+$m-title-h5-16px: normal 16px 'GiphursBold', sans-serif;
+$m-title-h6-12px: normal 12px 'GiphursBold', sans-serif;
+
+$m-subtitle-24px: normal 24px 'MontserratBold', sans-serif;
+$m-subtitle-20px: normal 20px 'MontserratBold', sans-serif;
+$m-subtitle-16px: normal 16px 'MontserratBold', sans-serif;
+
+$m-paragraph-15px: normal 15px 'MontserratRegular', sans-serif;
+$m-paragraph-14px: normal 14px 'MontserratRegular', sans-serif;
+$m-paragraph-13px: normal 13px 'MontserratRegular', sans-serif;
+
+//DOCUMENTS
+$document-font: 'PreTesto';
+$document-title: 'MontserratBold';
+// $document-title-regular: 
+
+
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+html{scroll-behavior: smooth !important; transition: 0.8s !important;}
+/* Barras de Rolagem (tamanho | fundo da barra onde corre a seta | alça da barra que mostra a altura que está) */
+::-webkit-scrollbar {width:12px; height: 12px;}
+::-webkit-scrollbar-track {background: $primary-color-red;}
+::-webkit-scrollbar-thumb {background: $primary-color-blue;}
+::-webkit-scrollbar:vertical{display: none;}
+
+body{
+    touch-action:pan-y;
+    background-color: $primary-color-blue;
+}
+
+a{
+    text-decoration: none;
+}
+
+.CTA-button{
+    width: 300px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color-red;
+    border-style: solid;
+    border-color: $neutral-color-white;
+    border-radius: 50vw;
+    border-width: 4px;
+    color: $neutral-color-white;
+    font: $title-h5-20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: 300ms;
+    position: relative;
+    z-index: 1;
+}
+
+.CTA-button:hover{
+    filter: drop-shadow(0 0 5px $neutral-color-white);
+    animation: CTA-glowing 1.5s infinite;
+    background-color: $secondary-color-red-plus;
+    box-shadow: inset 0 0 10px 3px $primary-color-red;
+}
+
+@keyframes CTA-glowing{
+    0%{
+        filter: drop-shadow(0 0 5px $neutral-color-white);
+    }
+    50%{
+        filter: drop-shadow(0 0 10px $neutral-color-white);
+    }
+    100%{
+        filter: drop-shadow(0 0 5px $neutral-color-white);
+    }
+}
+
+.CTA-button:active{
+    filter: drop-shadow(0 0 10px $neutral-color-white);
+    background-color: $primary-color-red;
+    box-shadow: inset 0 0 5px 2px $secondary-color-red5;
+}

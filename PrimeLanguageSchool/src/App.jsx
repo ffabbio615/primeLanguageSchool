@@ -7,7 +7,7 @@ import S3Services from './components/S3Services';
 import S4Testimonials from './components/S4Testimonials';
 import S5ProposalLocation from './components/S5ProposalLocation';
 import S6Faq from './components/S6Faq';
-// import Footer from './components/footer';
+import Footer from './components/Footer';
 import CertificateLogin from './certificate/CertificateLogin';
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
             <S4Testimonials/>
             <S5ProposalLocation/>
             <S6Faq/>
-            {/* <Footer/> */}
+            <Footer/>
             </>}
           />
 

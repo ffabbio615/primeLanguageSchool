@@ -30,7 +30,7 @@ function App() {
             <S4Testimonials/>
             <S5ProposalLocation/>
             <S6Faq/>
-            <Footer/>
+            {/* <Footer/> */}
             </>}
           />
 

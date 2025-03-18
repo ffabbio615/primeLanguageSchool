@@ -18,7 +18,7 @@ export default function CertificateLogin(){
         const username = document.querySelector("#username").value;
         const password = document.querySelector("#password").value;
 
-        if(username === 'Alexandre' && password === 'Alfava@081516'){
+        if(username === 'admin' && password === 'admin'){
             setLogin(true);
         }
         else{

@@ -1,5 +1,37 @@
 @use '../App.scss';
 
+.loader-container{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: App.$primary-color-blue;
+    z-index: 500;
+
+
+    .loader {
+        height: 150px;
+        aspect-ratio: 1;
+        padding: 10px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        mask: conic-gradient(#000 0 0) content-box exclude,conic-gradient(#000 0 0);
+        filter: blur(12px);
+      }
+      .loader:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: conic-gradient(#0000 35%,App.$primary-color-red,App.$secondary-color-red3 65%);
+        animation: l1 1.5s linear infinite;
+      }
+      @keyframes l1 {
+        to {rotate: 1turn}
+      }
+}
+
 .login-container{
     display: flex;
     justify-content: center;
@@ -10,7 +42,7 @@
 
     .login{
         width: 400px;
-        height: 320px;
+        height: 350px;
         padding-top: 90px;
         border: 2px solid App.$neutral-color-white;
         border-radius: 20px;
@@ -74,6 +106,12 @@
         input[type="text"]::placeholder, input[type="password"]::placeholder{
             color: App.$neutral-color-medium-gray;
         }
+
+        .forgot-password{
+            color: App.$neutral-color-white;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     
         .btn-login{
             width: 370px;
@@ -81,8 +119,8 @@
             background-color: App.$secondary-color-red-2;
             border: none;
             color: App.$neutral-color-white;
-            font: App.$title-h6-16px;
-            letter-spacing: 2px;
+            font: App.$subtitle-16px;
+            letter-spacing: 1px;
             border: 2px solid App.$neutral-color-white;
             transition: 0.5s;
             cursor: pointer;
@@ -92,9 +130,14 @@
             background-color: App.$neutral-color-white;
             color: App.$neutral-color-dark-gray;
         }
-    }
 
+        .version-observation{
+            color: App.$neutral-color-white;
+            font: App.$paragraph-16px;
+            display: none;
+        }
     }
+}
 
 .prime-logo-background{
     display: flex;
@@ -109,65 +152,84 @@
     filter: invert(1) brightness(5);
 }
 
+.btn-log-out{
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 120px;
+    height: 45px;
+    background-color: App.$primary-color-red;
+    color: App.$neutral-color-white;
+    border: none;
+    border-radius: 5px;
+    font: App.$paragraph-16px;
+    cursor: pointer;
+    transition: 300ms;
+}
 
-
-
-@media screen and (min-width: 600px) and (max-width: 1099px) and (orientation:landscape){
-
-    .login-container{
-        height: 100vh;
-        height: calc(var(--vh, 1vh) * 100);
-    
-        .login{
-            width: 400px;
-            height: 200px;
-            margin-top: 10px;
-            padding-top: 45px;
-    
-            .header-login-icon{
-                width: 70px;
-                height: 70px;
-                top:-35px;
-            }
-
-            .icon{
-                width: 40px;
-                height: 40px;
-            }
-        
-            input[type="text"], input[type="password"]{
-                width: 320px;
-                height: 40px;
-            }
-        
-            .btn-login{
-                width: 360px;
-                height: 40px;
-                background-color: App.$neutral-color-white;
-                color: App.$neutral-color-dark-gray;
-                transition: 0s;
-            }
-        }
-    
-        }
-    
-    .prime-logo-background{
-        background-size: 70%;
-        opacity: 0.1;
-    }
-
+.btn-log-out:hover{
+    filter: drop-shadow(0 0 10px rgba(App.$neutral-color-white, 0.3));
+    background-color: App.$secondary-color-red-plus;
+    box-shadow: inset 0 0 10px 3px App.$primary-color-red;
 }
 
 
-@media screen and (min-width: 300px) and (orientation:portrait){
+
+// @media screen and (min-width: 600px) and (max-width: 1099px) and (orientation:landscape){
+
+//     .login-container{
+//         height: 100vh;
+//         height: calc(var(--vh, 1vh) * 100);
+    
+//         .login{
+//             width: 400px;
+//             height: 200px;
+//             margin-top: 10px;
+//             padding-top: 45px;
+    
+//             .header-login-icon{
+//                 width: 70px;
+//                 height: 70px;
+//                 top:-35px;
+//             }
+
+//             .icon{
+//                 width: 40px;
+//                 height: 40px;
+//             }
+        
+//             input[type="text"], input[type="password"]{
+//                 width: 320px;
+//                 height: 40px;
+//             }
+        
+//             .btn-login{
+//                 width: 360px;
+//                 height: 40px;
+//                 background-color: App.$neutral-color-white;
+//                 color: App.$neutral-color-dark-gray;
+//                 transition: 0s;
+//             }
+//         }
+    
+//         }
+    
+//     .prime-logo-background{
+//         background-size: 70%;
+//         opacity: 0.1;
+//     }
+
+// }
+
+
+@media screen and (min-width: 300px) and (max-width: 1279px){
 
     .login-container{
-        height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
     
         .login{
             width: 300px;
-            height: 330px;
+            height: 250px;
             padding-top: 80px;
     
             .header-login-icon{
@@ -179,6 +241,14 @@
             input[type="text"], input[type="password"]{
                 width: 220px;
             }
+
+            .password-container{
+                display: none;
+            }
+
+            input[type="password"]{
+                display: none;
+            }
         
             .btn-login{
                 width: 270px;
@@ -186,9 +256,20 @@
                 color: App.$neutral-color-dark-gray;
                 transition: 0s;
             }
+
+            .btn-access{
+                display: none;
+            }
+
+            .version-observation{
+                color: App.$neutral-color-white;
+                font: App.$m-paragraph-13px;
+                width: 90%;
+                text-align: center;
+                display: block;
+            }
         }
-    
-        }
+    }
     
     .prime-logo-background{
         background-size: 100%;
